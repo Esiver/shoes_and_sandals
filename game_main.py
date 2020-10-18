@@ -1,7 +1,7 @@
 import playerchar
 import items
-
-
+import monsterchar
+import game_events
 
 playerone = playerchar.Player()
 
@@ -25,4 +25,9 @@ playerone.position_check()
 q1 = playerchar.Quest('steal gold',3,5,0,'gold pieces')
 q1.endQuest()
 
+playerone.position_update(0,0,1)
+
+monster1 = monsterchar.Monster(2,2,3,'booby brown',22,2000,10)
+
+game_events.checker(monster1,playerone)
 

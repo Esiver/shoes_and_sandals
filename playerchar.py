@@ -19,24 +19,23 @@ class Quest:
 class Player:
     health = 10
     inventory = []
-    position_x = 0
-    position_y = 0
-    position_z = 0
+    pos_x = 0
+    pos_y = 0
+    pos_z = 0
     
     def position_check(self):
-        print('Current coordinates: ({}:{}:{})'.format(self.position_x,self.position_y,self.position_z))
+        print('Current coordinates: ({}:{}:{})'.format(self.pos_x,self.pos_y,self.pos_z))
     def position_update(self,x,y,z):
-        self.position_x = self.position_x + x
-        self.position_y = self.position_y + y
-        self.position_z = self.position_z + z
+        self.pos_x = self.pos_x + x
+        self.pos_y = self.pos_y + y
+        self.pos_z = self.pos_z + z
+        print('You are now at: ({}:{}:{})'.format(self.pos_x,self.pos_y,self.pos_z))
     def position_set(self, x, y, z):
-        self.position_x = x
-        self.position_y = y
-        self.position_z = z
+        self.pos_x = x
+        self.pos_y = y
+        self.pos_z = z
     
         
-
-
     def inventory_check(self):
         if not self.inventory:
             print('inventory empty')
@@ -46,12 +45,12 @@ class Player:
                 print('- ' + i.name)
 
 class Monster:
-    def __init__(self, health, dmg, position_x, position_y, position_z):
+    def __init__(self, health, dmg, pos_x, pos_y, pos_z):
         self.health = health
         self.dmg = dmg
-        self.position_x = position_x
-        self.position_y = position_y
-        self.position_z = position_z
+        self.pos_x = pos_x
+        self.pos_y = pos_y
+        self.pos_z = pos_z
 
     
 
