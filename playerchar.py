@@ -1,4 +1,5 @@
-import numpy as np
+import world
+
 
 class Quest:
     def startQuest(self,name,reward,goal,what):
@@ -17,14 +18,22 @@ class Quest:
         self.startQuest(name,reward,goal,what)
 
 class Player:
-    health = 10
-    inventory = []
-    pos_x = 0
-    pos_y = 0
-    pos_z = 0
+    def __init__(self,health,bag,room):
+        self.health = health
+        self.bag = bag
+        self.room = world.world[room]
     
     def position_check(self):
-        print('Current coordinates: ({}:{}:{})'.format(self.pos_x,self.pos_y,self.pos_z))
+        self.room.desc
+
+    def move(self, direction):
+        if direction not in world.world.links:
+            print("you can not move that way")
+            return
+        print("you are now entering".format(self.room))
+        self.room = position
+
+
     def position_update(self,x,y,z):
         self.pos_x = self.pos_x + x
         self.pos_y = self.pos_y + y

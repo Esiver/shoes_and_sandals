@@ -31,3 +31,13 @@ monster1 = monsterchar.Monster(2,2,3,'booby brown',22,2000,10)
 
 game_events.checker(monster1,playerone)
 
+while True:
+    n = input("what is your command?")
+    if (n.strip() == "exit"):
+        print('you have died.')
+        break
+    elif n.strip() == "go" or "move" or "walk":
+        g = input("please input coordinates x,y,z")
+        break
+
+
