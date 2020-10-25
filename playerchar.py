@@ -1,6 +1,5 @@
+
 import world
-
-
 class Quest:
     def startQuest(self,name,reward,goal,what):
         print('You started a quest: {}'.format(name))
@@ -18,40 +17,41 @@ class Quest:
         self.startQuest(name,reward,goal,what)
 
 class Player:
-    def __init__(self,health,bag,room):
+    def __init__(self,health,bag,room, pos_x, pos_y):
         self.health = health
         self.bag = bag
-        self.room = world.world[room]
-    
-    def position_check(self):
-        self.room.desc
+        self.room = world.wMap[room]
+        self.pos_x = pos_x
+        self.pos_y = pos_y
 
     def move(self, direction):
-        if direction not in world.world.links:
+        if direction not in world.wMap:
             print("you can not move that way")
             return
-        print("you are now entering".format(self.room))
-        self.room = position
+        self.room = world.wMap[direction]
+        print("you are now entering {}".format(self.room))
 
-
-    def position_update(self,x,y,z):
+    def position_update(self,x,y):
         self.pos_x = self.pos_x + x
         self.pos_y = self.pos_y + y
-        self.pos_z = self.pos_z + z
-        print('You are now at: ({}:{}:{})'.format(self.pos_x,self.pos_y,self.pos_z))
-    def position_set(self, x, y, z):
+        print('You are now at: ({}:{})'.format(self.pos_x,self.pos_y))
+        
+    def position_set(self, x, y):
         self.pos_x = x
         self.pos_y = y
-        self.pos_z = z
-    
         
+            
     def inventory_check(self):
-        if not self.inventory:
+        if not self.bag:
             print('inventory empty')
         else:
             print('your inventory contains:')
             for i in self.inventory:
                 print('- ' + i.name)
+
+
+
+
 
 class Monster:
     def __init__(self, health, dmg, pos_x, pos_y, pos_z):
