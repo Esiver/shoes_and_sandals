@@ -1,20 +1,6 @@
 
 import world
-class Quest:
-    def startQuest(self,name,reward,goal,what):
-        print('You started a quest: {}'.format(name))
-        print('You must collect {} {}'.format(goal,what))
-        print('Upon completion you will be rewarded {} gold pieces'.format(self.reward))
-    def endQuest(self):
-        print('You have successfully collected {} {} and are rewarded {} gold coins. \n Completed quest {}'.format(self.goal,self.what,self.reward,self.name))
 
-    def __init__(self, name,reward,goal,progress,what):
-        self.name = name
-        self.reward = reward
-        self.goal = goal
-        self.progress = progress
-        self.what = what
-        self.startQuest(name,reward,goal,what)
 
 class Player:
     def __init__(self,health,bag,room, pos_x, pos_y):
@@ -24,12 +10,13 @@ class Player:
         self.pos_x = pos_x
         self.pos_y = pos_y
 
-    def move(self, direction):
-        if direction not in world.wMap:
-            print("you can not move that way")
-            return
-        self.room = world.wMap[direction]
-        print("you are now entering {}".format(self.room))
+    def travel(self, direction): #perhaps add event_handler to allow for random events?
+        if direction in self.room.links:
+            new_room_name = self.room.links[direction]
+            print('moving to', new_room_name)
+            self.room = world.wMap[new_room_name]
+        elif direction not in self.room.links:
+            print("You can not go in that direction")
 
     def position_update(self,x,y):
         self.pos_x = self.pos_x + x
