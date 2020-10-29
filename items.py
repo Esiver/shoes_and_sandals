@@ -20,9 +20,3 @@ class Shoes:
         print('You found shoes: ' + self.name)
         print('{} are sized {}'.format(self.name,self.size))
         print('You estimate {} to be worth {} gold coins.'.format(self.name,self.cost))
-
-    def describe_self(self):
-        print('')
-
-
-
