@@ -22,7 +22,7 @@ class Player:
         print("level: {}.".format(self.depth))
         
         game_events.check(self.depth,world.wMap[game_events.get_key(self.room)].dice)
-        game_events.check(self.)
+        #game_events.check(self.)
         r = input('what will you do in the {}?\n >>>'.format(self.room.name))
         if r.strip() == "venture":
             self.venture()    

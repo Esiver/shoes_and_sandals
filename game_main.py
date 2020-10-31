@@ -8,13 +8,22 @@ import world
 
 #declare characters
 playerone = playerchar.Player(100,[], "Forest",1)
-monster1 = monsterchar.Monster(2,2,3,'booby brown',22,2000,10)
-
-#playerone.inventory_check()
+monster1 = monsterchar.Monster('booby brown',22,2000,10)
 
 w_stt = items.Weapon('Sword of a Thousand Truths', 29, 5)
 shoes1 = items.Shoes('Silk Slippers',45,'silk',3.5,5)
 playerone.inventory = [w_stt,shoes1]
+
+print(world.wMap)
+
+monsters = monsterchar.monsterMaker()
+
+
+world.roomFill(world.wMap['Forest'].inv, monsters)
+print("forest   ",world.wMap['Forest'].inv)
+
+
+#playerone.inventory_check()
 
 #q1 = world.Quest('steal gold',3,5,0,'gold pieces')
 #q1.endQuest()
@@ -33,7 +42,7 @@ while game == True: #start game
         else:                                                       # handle error
             print("invalid direction")                              # + message
 
-    if n.strip() == "look":                                       #
+    if n.strip() == "look":                                         # 
         print("you look around.")
         playerone.look()
         game = True
