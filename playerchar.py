@@ -16,21 +16,25 @@ class Player:
             print("you are now in ",self.room.name)
             return
 
-    def venture(self):
-        self.depth = self.depth +1
-        print("you venture deeper into the {}".format(self.room.name))
-        print("level: {}.".format(self.depth))
-        
-        game_events.check(self.depth,world.wMap[game_events.get_key(self.room)].dice)
-        #game_events.check(self.)
-        r = input('what will you do in the {}?\n >>>'.format(self.room.name))
-        if r.strip() == "venture":
-            self.venture()    
-        if r.strip() == "exit":
-            print("you retreat from level {} the {}.".format(self.depth,self.room.name))
-            self.depth = 0
-        if r.strip() == "look":
-            self.look()
+    #def venture(self):
+    #    self.depth = self.depth +1
+    #    print("you venture deeper into the {}".format(self.room.name))
+    #    print("level: {}.".format(self.depth))
+    #    
+    #    try:
+    #        game_events.check(self.depth,world.wMap[game_events.get_key(self.room)].inv[self.depth])
+    #    except IndexError:
+    #        print("you see nothing here.")
+    #        pass
+#
+    #    r = input('what will you do in the {}?\n >>>'.format(self.room.name))
+    #    if r.strip() == "venture":
+    #        self.venture()    
+    #    if r.strip() == "exit":
+    #        print("you retreat from level {} the {}.".format(self.depth,self.room.name))
+    #        self.depth = 0
+    #    if r.strip() == "look":
+    #        self.look()
     def look (self):
         print(self.room.desc)
     def inventory_check(self):

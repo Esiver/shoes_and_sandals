@@ -47,7 +47,7 @@ while game == True: #start game
         playerone.look()
         game = True
     if n.strip() == "venture":
-        playerone.venture()
+        game_events.venture(playerone)
     if n.strip() == "quit":
         print('you have died.')
         game = False
