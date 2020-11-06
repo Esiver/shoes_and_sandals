@@ -7,12 +7,12 @@ import world
 
 
 #declare characters
-playerone = playerchar.Player(100,[], "Forest",1)
+playerone = playerchar.Player(100,1,[], "Forest",1,11)
 monster1 = monsterchar.Monster('booby brown',22,2000,10)
 
 w_stt = items.Weapon('Sword of a Thousand Truths', 29, 5)
 shoes1 = items.Shoes('Silk Slippers',45,'silk',3.5,5)
-playerone.inventory = [w_stt,shoes1]
+playerone.bag = [w_stt,shoes1]
 
 print(world.wMap)
 
@@ -31,7 +31,7 @@ print("forest   ",world.wMap['Forest'].inv)
 #
 game = True
 while game == True: #start game
-    
+    playerone.look()
     n = input("What will you do? \n >>> ")                          #enquire command from player
     if n.strip() == "travel":                                       # in case 'travel' command
         # tell where can travel - loop trough dir
@@ -42,14 +42,16 @@ while game == True: #start game
         else:                                                       # handle error
             print("invalid direction")                              # + message
 
-    if n.strip() == "look":                                         # 
+    if n.strip() == "look":                                         # orientation
         print("you look around.")
         playerone.look()
-        game = True
-    if n.strip() == "venture":
+    if n.strip() == "venture":                                      # travel z-level, deeper into each room.
         game_events.venture(playerone)
-    if n.strip() == "quit":
+    if n.strip() == "bag":                                          # inventory
+        print("you check your bags...")
+        playerone.inventory_check()
+    if n.strip() == "stats":                                        # player stats
+        playerone.statPrint()
+    if n.strip() == "quit":                                         # exit game
         print('you have died.')
         game = False
-    #else:
-    #    print('......invalid command')
