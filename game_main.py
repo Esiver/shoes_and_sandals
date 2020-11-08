@@ -14,21 +14,16 @@ w_stt = items.Weapon('Sword of a Thousand Truths', 29, 5)
 shoes1 = items.Shoes('Silk Slippers',45,'silk',3.5,5)
 playerone.bag = [w_stt,shoes1]
 
-print(world.wMap)
+
 
 monsters = monsterchar.monsterMaker()
 
 
 world.roomFill(world.wMap['Forest'].inv, monsters)
-print("forest   ",world.wMap['Forest'].inv)
+#print("forest   ",world.wMap['Forest'].inv)
 
 
-#playerone.inventory_check()
 
-#q1 = world.Quest('steal gold',3,5,0,'gold pieces')
-#q1.endQuest()
-
-#
 game = True
 while game == True: #start game
     playerone.look()

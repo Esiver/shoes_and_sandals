@@ -8,7 +8,7 @@ class Player:
         self.depth = depth
         self.dmg = dmg
         self.speed = speed
-        
+
     def travel(self, direction): #perhaps add event_handler to allow for random events?
         if direction in self.room.links:
             new_room_name = self.room.links[direction]
@@ -41,6 +41,7 @@ class Player:
     
     def look (self):
         print(self.room.desc)
+    
     def inventory_check(self):
         if not self.bag:
             print('inventory empty')
@@ -59,11 +60,4 @@ class Player:
 
 
 
-# equip function
-# list inventory
-# need option
-# # if option = name of item
-        # player.dmg == item.dmg
-
-    
 
