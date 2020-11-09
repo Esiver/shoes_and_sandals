@@ -1,4 +1,4 @@
-import numpy as np
+#import numpy as np
 
 class Room:
     def __init__(self,name,desc,links,dice,depth,inv):
@@ -20,14 +20,6 @@ def roomFill(room,fill):
     for x in range(len(fill)):
         room.append(fill[x])
         print(fill[x])
-    # 1. append hvadsomhelst OK
-    # 2. append monster OK
-    # 3. append genstand OK
-    # 4. generer monstre OK
-    # 5. loop append alle monstre
-    
-    
-    
 
 
 class Quest:
@@ -46,9 +38,13 @@ class Quest:
         self.what = what
         self.startQuest(name,reward,goal,what)
 
-world = {}
+#world = {}
 
 wMap = {}
-wMap['Forest'] = Room("forest of lies", "You are in a forest. You can tell it lies.", {'N' : "Cave"},2,0,[0,0,"Jens"])
-wMap["Cave"] = Room("Cave of Truths", "You are in a cave. You can tell it tells truths", {'S':"Forest"},4,0,[0,0,"Jens"])
+wMap['Forest'] = Room("forest of lies", "You are in a forest. You can tell it lies.", {'N' : "Cave"},2,0,[])
+wMap["Cave"] = Room("Cave of Truths", "You are in a cave. You can tell it tells truths", {'S':"Forest"},4,0,[])
+#wMap['Dungeon'] = Room("Cave of Truths", "You are in a cave. You can tell it tells truths", {'S':"Forest"},4,0,[])
+#wMap['Dungeon'] = Room("Cave of Truths", "You are in a cave. You can tell it tells truths", {'S':"Forest"},4,0,[])
+#wMap['Dungeon'] = Room("Cave of Truths", "You are in a cave. You can tell it tells truths", {'S':"Forest"},4,0,[])
+#wMap['Dungeon'] = Room("Cave of Truths", "You are in a cave. You can tell it tells truths", {'S':"Forest"},4,0,[])
 

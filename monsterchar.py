@@ -14,12 +14,12 @@ class Monster:
         print('you have encountered {}, prepare for battle!'.format(self.name))
         print('{} has {} hp and does {} dmg'.format(self.name, self.health, self.dmg))
 
-def monsterMaker():
+def monsterMaker(healthM,dmgM,spdM):
     print("generating foes")
     name_list = ["arrra","eerfff","uueeer","koorrr"] #kunne være sejt bare at importere en .txt med dette.
     monster_list = []
-    for i in range(3):
-        monster_list.append(Monster(name_list[i],i*5,i*24,i*3,[]))
+    for i in range(len(monster_list)):
+        monster_list.append(Monster(name_list[i],i*dmgM,i*healthM,i*spdM,[]))
         print(monster_list[i].name)
         print(monster_list[i].dmg)
         print(monster_list[i].health)
